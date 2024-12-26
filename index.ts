@@ -23,7 +23,7 @@ app.post('/tasks', (req, res) => {
 
 app.put('/tasks/:id', (req, res) => {
 
-  const id = req.params.id;
+  const id = parseInt(req.params.id);
   let body = req.body;
   const index = tasks.findIndex(t => t.id === id);
 
@@ -40,7 +40,7 @@ app.put('/tasks/:id', (req, res) => {
 })
 
 app.delete('/tasks/:id', (req, res)=>{
-  const id = req.params.id;
+  const id = parseInt(req.params.id);
   tasks = tasks.filter(t => t.id !== id);
   res.json({message: 'task has deleted successfully'})
 })
